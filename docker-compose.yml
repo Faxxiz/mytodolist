@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  nestjs:
+    build:
+      context: ./nestjs
+      dockerfile: Dockerfile
+    ports:
+      - 3001:3001
+    volumes:
+      - ./nestjs/:/app
+      - /app/node_modules
+
+  react_app:
+    build:
+      context: ./react-app
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - ./react-app/:/app
+      - /app/node_modules
